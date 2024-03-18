@@ -112,7 +112,7 @@ class HoracatWidget : AppWidgetProvider() {
                 40 -> "Falten cinc minuts"
                 41 -> "Falten quatre minuts"
                 42 -> "Falten tres minuts"
-                43 -> "Falten dis minuts"
+                43 -> "Falten dos minuts"
                 44 -> "Falta un minut"
 
                 46 -> "un minut"
