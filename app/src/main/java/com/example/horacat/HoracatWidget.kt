@@ -26,12 +26,11 @@ class HoracatWidget : AppWidgetProvider() {
                 for (appWidgetId in appWidgetIds) {
                     updateAppWidget(context, appWidgetManager, appWidgetId)
                 }
-                handler.postDelayed(this, 1000) // Actualiza cada segundo
+                handler.postDelayed(this, 1000)
             }
         }
         handler.post(runnable)
     }
-
 
     companion object {
         internal fun updateAppWidget(
