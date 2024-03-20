@@ -3,6 +3,6 @@
 android:id="@+id/widgetTextView"
 android:layout_width="match_parent"
 android:layout_height="wrap_content"
-android:textSize="35sp"
+android:textSize="32sp"
 android:textColor="@android:color/white"
 />

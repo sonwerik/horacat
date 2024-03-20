@@ -57,7 +57,7 @@ class MainActivity : ComponentActivity() {
             minute >= 38 && minute < 45 -> "$minuteToString per tres quarts $hourString"
             minute == 45 -> "Són tres quarts $hourString $timeOfDayString"
             minute >= 45 && minute < 52 -> "Són tres quarts i $minuteToString $hourString"
-            minute >= 53 && minute < 60 -> "$minuteToString per $timeOclock"
+            minute >= 53 && minute < 60 -> "$minuteToString per $timeOclock $timeOfDayString"
             else -> ""
         }
     }
