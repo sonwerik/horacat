@@ -1,30 +1,28 @@
 package com.example.horacat
 
+import android.app.AlarmManager
+import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
+import android.content.ComponentName
 import android.content.Context
+import android.content.Intent
+import android.os.Handler
+import android.os.Looper
 import android.widget.RemoteViews
 import java.util.Calendar
 import java.util.Timer
 import java.util.TimerTask
 
 class HoracatWidget : AppWidgetProvider() {
-    override fun onUpdate(
-        context: Context,
-        appWidgetManager: AppWidgetManager,
-        appWidgetIds: IntArray
-    ) {
-
-        val timer = Timer()
-        timer.scheduleAtFixedRate(object : TimerTask() {
-            override fun run() {
-                for (appWidgetId in appWidgetIds) {
-                    updateAppWidget(context, appWidgetManager, appWidgetId)
-                }
-            }
-        }, 0, 1)
+    override fun onReceive(context: Context?, intent: Intent?) {
+        super.onReceive(context, intent)
+        if (intent?.action == AppWidgetManager.ACTION_APPWIDGET_UPDATE) {
+            val appWidgetManager = AppWidgetManager.getInstance(context)
+            val appWidgetIds = appWidgetManager.getAppWidgetIds(ComponentName(context!!, HoracatWidget::class.java))
+            onUpdate(context!!, appWidgetManager, appWidgetIds)
+        }
     }
-
     companion object {
         internal fun updateAppWidget(
             context: Context,
