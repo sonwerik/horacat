@@ -15,14 +15,24 @@ import java.util.Timer
 import java.util.TimerTask
 
 class HoracatWidget : AppWidgetProvider() {
-    override fun onReceive(context: Context?, intent: Intent?) {
-        super.onReceive(context, intent)
-        if (intent?.action == AppWidgetManager.ACTION_APPWIDGET_UPDATE) {
-            val appWidgetManager = AppWidgetManager.getInstance(context)
-            val appWidgetIds = appWidgetManager.getAppWidgetIds(ComponentName(context!!, HoracatWidget::class.java))
-            onUpdate(context!!, appWidgetManager, appWidgetIds)
+    override fun onUpdate(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetIds: IntArray
+    ) {
+        val handler = Handler(Looper.getMainLooper())
+        val runnable = object : Runnable {
+            override fun run() {
+                for (appWidgetId in appWidgetIds) {
+                    updateAppWidget(context, appWidgetManager, appWidgetId)
+                }
+                handler.postDelayed(this, 1000) // Actualiza cada segundo
+            }
         }
+        handler.post(runnable)
     }
+
+
     companion object {
         internal fun updateAppWidget(
             context: Context,

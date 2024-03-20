@@ -3,8 +3,6 @@
         xmlns:tools="http://schemas.android.com/tools"
         package="com.example.horacat">
 
-    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
-
     <application
             android:allowBackup="true"
             android:dataExtractionRules="@xml/data_extraction_rules"
