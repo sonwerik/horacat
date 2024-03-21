@@ -150,7 +150,7 @@ class HoracatWidget : AppWidgetProvider() {
                 5 -> "de sis del matí"
                 6 -> "de set del matí"
                 7 -> "de vuit del matí"
-                8 -> "de dou del matí"
+                8 -> "de nou del matí"
                 9 -> "de deu del matí"
                 10 -> "d'onze del matí"
                 11 -> "de dotze del migdia"
