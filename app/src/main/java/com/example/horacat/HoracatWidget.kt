@@ -58,6 +58,7 @@ class HoracatWidget : AppWidgetProvider() {
             val timeOfDayString = getTimeOfDayString(hour)
             val minuteToString = getMinuteToString(minute)
             val timeOclock = getTimeOclockString(hour)
+            val timeOfDayForNextHour = getTimeOfDayForNextHourString(hour)
 
             return when {
                 minute == 0 -> "$hourStartString $timeOfDayString"
@@ -69,12 +70,13 @@ class HoracatWidget : AppWidgetProvider() {
                 minute == 30 -> "Són dos quarts $hourString"
                 minute > 30 && minute <= 37 -> "Són dos quarts i $minuteToString $hourString"
                 minute >= 38 && minute < 45 -> "$minuteToString per tres quarts $hourString"
-                minute == 45 -> "Són tres quarts $hourString $timeOfDayString"
+                minute == 45 -> "Són tres quarts $hourString"
                 minute >= 45 && minute < 52 -> "Són tres quarts i $minuteToString $hourString"
-                minute >= 53 && minute < 60 -> "$minuteToString per $timeOclock $timeOfDayString"
+                minute >= 53 && minute < 60 -> "$minuteToString per $timeOclock ${timeOfDayForNextHour}"
                 else -> ""
             }
         }
+
         private fun getMinuteToString(minute: Int): String {
             return when (minute) {
                 1 -> "un minut"
@@ -253,6 +255,36 @@ class HoracatWidget : AppWidgetProvider() {
                 18 -> "de la tarda"
                 19 -> "del vespre"
                 20 -> "del vespre"
+                21 -> "de la nit"
+                22 -> "de la nit"
+                23 -> "de la nit"
+                else -> ""
+            }
+        }
+
+        private fun getTimeOfDayForNextHourString(hour: Int): String {
+            return when (hour) {
+                0 -> "de la matinada"
+                1 -> "de la matinada"
+                2 -> "de la matinada"
+                3 -> "de la matinada"
+                4 -> "de la matinada"
+                5 -> "del matí"
+                6 -> "del matí"
+                7 -> "del matí"
+                8 -> "del matí"
+                9 -> "del matí"
+                10 -> "del matí"
+                11 -> "del migdia"
+                12 -> "del migdia"
+                13 -> "del migdia"
+                14 -> "de la tarda"
+                15 -> "de la tarda"
+                16 -> "de la tarda"
+                17 -> "de la tarda"
+                18 -> "del vespre"
+                19 -> "del vespre"
+                20 -> "de la nit"
                 21 -> "de la nit"
                 22 -> "de la nit"
                 23 -> "de la nit"
